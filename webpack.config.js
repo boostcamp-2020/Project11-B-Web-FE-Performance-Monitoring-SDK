@@ -2,31 +2,26 @@
 const path = require('path');
 
 module.exports = {
-  mode: 'production',
+  target: 'web',
   entry: {
     main: './src/index.ts',
   },
   output: {
-    filename: 'index.js',
     path: path.resolve(__dirname, './dist'),
-    libraryTarget: 'umd',
-    globalObject: 'this',
+    filename: 'bundle.js',
+    library: 'Panopticon',
+    libraryTarget: 'commonjs-module',
+    umdNamedDefine: true,
   },
   resolve: {
-    extensions: ['.ts', '.tsx', '.js'],
+    extensions: ['.ts', '.js'],
   },
   module: {
     rules: [
-      { test: /\.ts?$/, loader: 'ts-loader' },
       {
-        test: /\.js$/,
-        exclude: '/node_modules/',
-        use: {
-          loader: 'babel-loader',
-          options: {
-            presets: ['@babel/preset-env'],
-          },
-        },
+        test: /\.tsx?/,
+        use: 'ts-loader',
+        exclude: /node_modules/,
       },
     ],
   },

@@ -2,7 +2,7 @@
   "name": "pan-opt",
   "version": "1.0.0",
   "description": "Boostcamp-2020 Project11-B-Web-FE-Performance-Monitoring-SDK Panopticon",
-  "main": "dist/index.js",
+  "main": "dist/bundle.js",
   "types": "dist/index.d.ts",
   "scripts": {
     "test": "echo \"Error: no test specified\" && exit 1",
