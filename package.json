@@ -6,7 +6,8 @@
   "types": "dist/index.d.ts",
   "scripts": {
     "test": "echo \"Error: no test specified\" && exit 1",
-    "build": "tsc",
+    "build": "webpack",
+    "start": "webpack --watch",
     "lint": "eslint \"./**/*.{js,jsx,ts,tsx}\"",
     "lint:fix": "eslint --fix \"./**/*.{ts,tsx}\"",
     "prettier": "prettier --write --config \"./.prettierrc\" \"./**/*.{js,jsx,ts,tsx}\""
@@ -30,13 +31,16 @@
     "@typescript-eslint/eslint-plugin": "^4.8.0",
     "@typescript-eslint/parser": "^4.8.0",
     "eslint": "^7.13.0",
+    "eslint-config-airbnb-typescript": "^12.0.0",
     "eslint-config-prettier": "^6.15.0",
     "eslint-plugin-import": "^2.22.1",
     "eslint-plugin-prettier": "^3.1.4",
-    "eslint-config-airbnb-typescript": "^12.0.0",
-    "prettier": "^2.1.2"
+    "prettier": "^2.1.2",
+    "ts-loader": "^8.0.11",
+    "webpack": "^4.44.2"
   },
   "dependencies": {
-    "typescript": "^4.0.5"
+    "typescript": "^4.0.5",
+    "webpack-cli": "^4.2.0"
   }
 }
