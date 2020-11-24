@@ -1,3 +1,11 @@
-import clickHandler from './clickHandler';
+import onErrorHandler from './handlers/onError';
+import onUnhandledRejection from './handlers/onUnhandledRejection';
 
-export default clickHandler;
+const Panopticon = {
+  init: (): void => {
+    onErrorHandler();
+    onUnhandledRejection();
+  },
+};
+
+export default Panopticon;
