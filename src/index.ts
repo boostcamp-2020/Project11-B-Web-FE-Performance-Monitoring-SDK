@@ -2,9 +2,9 @@ import onErrorHandler from './handlers/onError';
 import onUnhandledRejection from './handlers/onUnhandledRejection';
 
 const Panopticon = {
-  init: (): void => {
-    onErrorHandler();
-    onUnhandledRejection();
+  init: (dsn: string): void => {
+    onErrorHandler(dsn);
+    onUnhandledRejection(dsn);
   },
 };
 
