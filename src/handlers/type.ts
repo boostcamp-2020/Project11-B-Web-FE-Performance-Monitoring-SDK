@@ -1,9 +1,25 @@
-export interface IError {
-  message: string | Event;
-  stack: string | undefined;
+export interface IPayload {
+  message: string;
+  stack: IStack[];
+  occuredAt: Date;
+  sdk: Information;
+  meta: IMeta;
 }
 
-export interface IPayload {
-  sdk: { name: string; version: string };
-  error: IError;
+interface IMeta {
+  browser: Information;
+  os: Information;
+  url: string;
+  ip: string;
+}
+interface IStack {
+  columnNo: string;
+  lineNo: string;
+  function: string;
+  filename: string;
+}
+
+interface Information {
+  name: string;
+  version: string;
 }
