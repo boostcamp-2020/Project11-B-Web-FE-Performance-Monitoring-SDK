@@ -1,9 +1,9 @@
 import { name, version } from '../../../package.json';
 import { IError, IPayload } from '../type';
+import sendError from '../../apis/sendError';
 
-const onErrorHandler = (): void => {
+const onErrorHandler = (dsn: string): void => {
   window.onerror = (message, source, line, column, error) => {
-    console.log(error);
     const errorObject: IError = {
       message,
       stack: error?.stack,
@@ -16,6 +16,7 @@ const onErrorHandler = (): void => {
       },
       error: errorObject,
     };
+    sendError(payload, dsn);
   };
 };
 

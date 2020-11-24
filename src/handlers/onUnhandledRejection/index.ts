@@ -1,7 +1,8 @@
 import { name, version } from '../../../package.json';
 import { IError, IPayload } from '../type';
+import sendError from '../../apis/sendError';
 
-const onUnhandledRejection = (): void => {
+const onUnhandledRejection = (dsn: string): void => {
   window.onunhandledrejection = (rejection: PromiseRejectionEvent) => {
     rejection.promise.catch((error: Error) => {
       const errorObject: IError = {
@@ -16,6 +17,7 @@ const onUnhandledRejection = (): void => {
         },
         error: errorObject,
       };
+      sendError(payload, dsn);
     });
   };
 };
