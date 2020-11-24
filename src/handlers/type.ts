@@ -1,22 +1,22 @@
 export interface IPayload {
   message: string;
   stack: IStack[];
-  occuredAt: Date;
+  occuredAt: string;
   sdk: Information;
   meta: IMeta;
 }
 
-interface IMeta {
-  browser: Information;
-  os: Information;
-  url: string;
-  ip: string;
-}
-interface IStack {
+export interface IStack {
   columnNo: string;
   lineNo: string;
   function: string;
   filename: string;
+}
+
+export interface IMeta {
+  browser: Information;
+  os: Information;
+  url: string;
 }
 
 interface Information {
