@@ -9,7 +9,8 @@
     "strict": true,
     "esModuleInterop": true,
     "forceConsistentCasingInFileNames": true,
-    "resolveJsonModule": true
+    "resolveJsonModule": true,
+    "lib": ["ES2015", "dom"]
   },
   "exclude": ["dist"]
 }
