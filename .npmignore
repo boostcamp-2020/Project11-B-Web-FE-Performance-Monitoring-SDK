@@ -6,3 +6,6 @@ src/
 .gitmessage
 .prettierrc
 tsconfig.json
+__test__
+node_modules
+webpack.config.js
