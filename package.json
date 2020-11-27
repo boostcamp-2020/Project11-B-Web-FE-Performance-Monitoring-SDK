@@ -1,7 +1,7 @@
 {
   "name": "pan-opt",
-  "version": "1.0.0",
-  "description": "Boostcamp-2020 Project11-B-Web-FE-Performance-Monitoring-SDK Panopticon",
+  "version": "1.0.1",
+  "description": "panopticon-js Panopticon SDK for javascript",
   "main": "dist/bundle.js",
   "types": "dist/index.d.ts",
   "scripts": {
@@ -20,8 +20,7 @@
     "type": "git",
     "url": "git+https://github.com/boostcamp-2020/Project11-B-Web-FE-Performance-Monitoring-SDK.git"
   },
-  "keywords": [],
-  "author": "",
+  "keywords": ["SDK","Panopticon","pan-opt","javascript","error","debugging","logging"],
   "license": "ISC",
   "bugs": {
     "url": "https://github.com/boostcamp-2020/Project11-B-Web-FE-Performance-Monitoring-SDK/issues"
@@ -37,12 +36,12 @@
     "eslint-plugin-prettier": "^3.1.4",
     "prettier": "^2.1.2",
     "ts-loader": "^8.0.11",
-    "webpack": "^4.44.2"
+    "webpack": "^4.44.2",
+    "typescript": "^4.0.5",
+    "webpack-cli": "^4.2.0"
   },
   "dependencies": {
     "bowser": "^2.11.0",
-    "error-stack-parser": "^2.0.6",
-    "typescript": "^4.0.5",
-    "webpack-cli": "^4.2.0"
+    "error-stack-parser": "^2.0.6"
   }
 }
