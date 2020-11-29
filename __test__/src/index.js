@@ -45,7 +45,6 @@ const rangeErrorButton = document.querySelector('#range-error');
 rangeErrorButton.addEventListener('click', () => {
   const num = 2;
   const fixedNum = num.toFixed(-10);
-  console.log(fixedNum);
 });
 
 // ReferenceError
