@@ -27,3 +27,52 @@ unhandledPromiseButton.addEventListener('click', () => {
     throw new Error('Unhandled promise rejection!');
   });
 });
+
+// EvalError - deprecated in ECMAScript
+const evalErrorButton = document.querySelector('#eval-error');
+evalErrorButton.addEventListener('click', () => {
+  throw new EvalError('Hello', 'someFile.js', 10);
+});
+
+// InternalError - None ECMA standard, not working in Chrome
+// const internalErrorButton = document.querySelector('#internal-error');
+// internalErrorButton.addEventListener('click', () => {
+//   throw new InternalError('Engine Failure');
+// });
+
+// RangeError
+const rangeErrorButton = document.querySelector('#range-error');
+rangeErrorButton.addEventListener('click', () => {
+  const num = 2;
+  const fixedNum = num.toFixed(-10);
+  console.log(fixedNum);
+});
+
+// ReferenceError
+const referenceErrorButton = document.querySelector('#reference-error');
+referenceErrorButton.addEventListener('click', () => {
+  console.log(notDefined);
+});
+
+// SyntaxError
+const syntaxErrorButton = document.querySelector('#syntax-error');
+syntaxErrorButton.addEventListener('click', () => {
+  // import('./syntaxError.js');
+  eval('hoo bar');
+});
+
+// TypeError
+const typeErrorButton = document.querySelector('#type-error');
+typeErrorButton.addEventListener('click', () => {
+  const nullElement = null;
+  nullElement.innerHTML = 'yay!';
+});
+
+// URIError
+const uriErrorButton = document.querySelector('#uri-error');
+uriErrorButton.addEventListener('click', () => {
+  const uri = 'https://boostcamp.com/?한국어=쿼리'
+  const encoded = encodeURI(uri);
+  const malformedUri = encoded.slice(20, 30);
+  const decoded = decodeURI(malformedUri);
+});
