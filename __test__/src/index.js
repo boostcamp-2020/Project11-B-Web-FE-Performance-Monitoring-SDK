@@ -1,24 +1,24 @@
 import Panopticon from '../../dist/bundle';
 
-Panopticon.init();
+const dsn = 'http://panopticon-dev.gq/api/issue'
 
-const errorMaker = () => {
+Panopticon.init(dsn);
+
+const makeCustomError = () => {
   throw new Error('error maker made this');
 };
 
-const errorCountdown = (num) => {
+const addStackToError = (num) => {
   if (num > 0) {
-    errorCountdown(num - 1);
+    addStackToError(num - 1);
   } else {
-    errorMaker();
+    makeCustomError();
   }
 };
 
 const errorButton = document.querySelector('#error');
 errorButton.addEventListener('click', () => {
-  // noUndefinedFn();
-  // throw new Error('Error button clicked');
-  errorCountdown(10);
+  addStackToError(10);
 });
 
 const unhandledPromiseButton = document.querySelector('#promise');
