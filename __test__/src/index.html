@@ -4,7 +4,20 @@
     <title>테스트</title>
   </head>
   <body>
-    <button id="error">Fire Error</button>
-    <button id="promise">Fire Unhandled Promise</button>
+    <div>
+      <h2>Fire custom error and promise rejections</h2>
+      <button id="error">Fire Error</button>
+      <button id="promise">Fire Unhandled Promise</button>
+    </div>
+    <div>
+      <h2>Fire JavaScript errors by type</h2>
+        <button id='eval-error'>Fire EvalError</button>
+        <!-- <button id='internal-error'>Fire InternalError</button> -->
+        <button id='range-error'>Fire RangeError</button>
+        <button id='reference-error'>Fire ReferenceError</button>
+        <button id='syntax-error'>Fire SyntaxError</button>
+        <button id='type-error'>Fire TypeError</button>
+        <button id='uri-error'>Fire URIError</button>
+    </div>
   </body>
 </html>
