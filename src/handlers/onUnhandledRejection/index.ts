@@ -7,10 +7,12 @@ const onUnhandledRejection = (dsn: string): void => {
   window.onunhandledrejection = (rejection: PromiseRejectionEvent) => {
     rejection.promise.catch((error: Error) => {
       if (!error) return;
-      parseStack(error);
+      const errorType = error.stack ? error.stack.split('\n')[0].split(':')[0] : '';
       const stack: IStack[] = parseStack(error);
       const meta: IMeta = parseMeta();
       const payload: IPayload = {
+        promise: 'promise',
+        type: errorType,
         message: error.message || '',
         sdk: {
           name,

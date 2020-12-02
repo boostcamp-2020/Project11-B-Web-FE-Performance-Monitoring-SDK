@@ -6,10 +6,11 @@ import { parseStack, parseMeta } from '../../utils/parser';
 const onErrorHandler = (dsn: string): void => {
   window.onerror = (message, source, line, column, error) => {
     if (!error) return;
-    parseStack(error);
     const stack: IStack[] = parseStack(error);
+    const errorType = error.stack ? error.stack.split('\n')[0].split(':')[0] : '';
     const meta: IMeta = parseMeta();
     const payload: IPayload = {
+      type: errorType,
       message: error.message || '',
       sdk: {
         name,
