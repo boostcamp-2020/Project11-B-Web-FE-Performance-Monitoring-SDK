@@ -1,5 +1,35 @@
-import { IMeta } from '../handlers/type';
-import { parseStack, parseMeta } from './parser';
+import { IMeta, IStack } from '../handlers/type';
+import { parseStack, parseErrorType, parseMeta } from './parser';
+
+describe('test parsing error types', () => {
+  it('parses new Error() to be type Error', () => {
+    expect(parseErrorType(new Error())).toBe('Error');
+  });
+
+  it('parses new EvalError() to be type EvalError', () => {
+    expect(parseErrorType(new EvalError())).toBe('EvalError');
+  });
+
+  it('parses new RangeError() to be type RangeError', () => {
+    expect(parseErrorType(new RangeError())).toBe('RangeError');
+  });
+
+  it('parses new ReferenceError() to be type ReferenceError', () => {
+    expect(parseErrorType(new ReferenceError())).toBe('ReferenceError');
+  });
+
+  it('parses new SyntaxError() to be type SyntaxError', () => {
+    expect(parseErrorType(new SyntaxError())).toBe('SyntaxError');
+  });
+
+  it('parses new TypeError() to be type TypeError', () => {
+    expect(parseErrorType(new TypeError())).toBe('TypeError');
+  });
+
+  it('parses new URIError() to be type URIError', () => {
+    expect(parseErrorType(new URIError())).toBe('URIError');
+  });
+});
 
 describe('test capturing userAgent and parsing it to meta data', () => {
   describe('when user is using : Chrome, Windows 10, panopticon.gq', () => {
