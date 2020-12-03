@@ -1,9 +1,11 @@
 export interface IPayload {
+  promise?: string;
   message: string;
   stack: IStack[];
   occuredAt: string;
   sdk: Information;
   meta: IMeta;
+  type: string;
 }
 
 export interface IStack {

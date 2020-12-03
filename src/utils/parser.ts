@@ -6,14 +6,18 @@ import { IStack, IMeta } from '../handlers/type';
 export const parseStack = (error: Error): IStack[] => {
   const parsedDataList = ErrorStackParser.parse(error);
   const parsedStackList: IStack[] = parsedDataList.map((data: ErrorStackParser.StackFrame) => {
+    const matchedURL = /[a-z]+:\/+[.0-9a-zA-Z]+\//.exec(data.fileName ? data.fileName : '');
+    let filename = '';
+    if (matchedURL && data.fileName) {
+      filename = data.fileName.slice(matchedURL[0].length);
+    }
     return {
       columnNo: String(data.columnNumber) || '',
       lineNo: String(data.lineNumber) || '',
-      filename: data.fileName || '',
+      filename,
       function: data.functionName || '',
     };
   });
-
   return parsedStackList;
 };
 
