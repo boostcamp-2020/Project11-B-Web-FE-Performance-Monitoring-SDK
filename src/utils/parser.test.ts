@@ -1,5 +1,48 @@
 import { IMeta, IStack } from '../handlers/type';
 import { parseStack, parseErrorType, parseMeta } from './parser';
+import {
+  makeErrorAtFirst,
+  callFromFirstToSecond,
+  callFromFirstToSecondToThird,
+} from './testModules/first';
+
+describe('test parsing error stack', () => {
+  describe('when error happens at 1', () => {
+    // callFromFirstToSecondToThird();
+    try {
+      callFromFirstToSecondToThird();
+    } catch (error) {
+      it('parses the stack', () => {
+        const stack: IStack[] = parseStack(error);
+        console.log(stack);
+      });
+    }
+  });
+
+  describe('when error happens at 1 -> 2', () => {
+    // callFromFirstToSecond();
+    try {
+      callFromFirstToSecond();
+    } catch (error) {
+      it('parses the stack', () => {
+        const stack: IStack[] = parseStack(error);
+        console.log(stack);
+      });
+    }
+  });
+
+  describe('when error happens at 1 -> 2 -> 3', () => {
+    // makeErrorAtFirst();
+    try {
+      makeErrorAtFirst();
+    } catch (error) {
+      it('parses the stack', () => {
+        const stack: IStack[] = parseStack(error);
+        console.log(stack);
+      });
+    }
+  });
+});
 
 describe('test parsing error types', () => {
   it('parses new Error() to be type Error', () => {
