@@ -1,13 +1,13 @@
 import { name, version } from '../../../package.json';
 import { IPayload, IStack, IMeta } from '../type';
 import sendError from '../../apis/sendError';
-import { parseStack, parseMeta } from '../../utils/parser';
+import { parseStack, parseErrorType, parseMeta } from '../../utils/parser';
 
 const onErrorHandler = (dsn: string): void => {
   window.onerror = (message, source, line, column, error) => {
     if (!error) return;
     const stack: IStack[] = parseStack(error);
-    const errorType = error.stack ? error.stack.split('\n')[0].split(':')[0] : '';
+    const errorType = parseErrorType(error);
     const meta: IMeta = parseMeta();
     const payload: IPayload = {
       type: errorType,
