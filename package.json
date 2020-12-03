@@ -5,7 +5,8 @@
   "main": "dist/bundle.js",
   "types": "dist/index.d.ts",
   "scripts": {
-    "test": "echo \"Error: no test specified\" && exit 1",
+    "dev": "concurrently \"npm start\" \"cd __test__ && npm run dev\"",
+    "test": "jest",
     "build": "webpack",
     "start": "webpack --watch",
     "lint": "eslint \"./**/*.{js,jsx,ts,tsx}\"",
@@ -20,24 +21,36 @@
     "type": "git",
     "url": "git+https://github.com/boostcamp-2020/Project11-B-Web-FE-Performance-Monitoring-SDK.git"
   },
-  "keywords": ["SDK","Panopticon","pan-opt","javascript","error","debugging","logging"],
+  "keywords": [
+    "SDK",
+    "Panopticon",
+    "pan-opt",
+    "javascript",
+    "error",
+    "debugging",
+    "logging"
+  ],
   "license": "ISC",
   "bugs": {
     "url": "https://github.com/boostcamp-2020/Project11-B-Web-FE-Performance-Monitoring-SDK/issues"
   },
   "homepage": "https://github.com/boostcamp-2020/Project11-B-Web-FE-Performance-Monitoring-SDK#readme",
   "devDependencies": {
+    "@types/jest": "^26.0.16",
     "@typescript-eslint/eslint-plugin": "^4.8.0",
     "@typescript-eslint/parser": "^4.8.0",
+    "concurrently": "^5.3.0",
     "eslint": "^7.13.0",
     "eslint-config-airbnb-typescript": "^12.0.0",
     "eslint-config-prettier": "^6.15.0",
     "eslint-plugin-import": "^2.22.1",
     "eslint-plugin-prettier": "^3.1.4",
+    "jest": "^26.6.3",
     "prettier": "^2.1.2",
+    "ts-jest": "^26.4.4",
     "ts-loader": "^8.0.11",
-    "webpack": "^4.44.2",
     "typescript": "^4.0.5",
+    "webpack": "^4.44.2",
     "webpack-cli": "^4.2.0"
   },
   "dependencies": {
