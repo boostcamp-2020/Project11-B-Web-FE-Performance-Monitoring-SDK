@@ -1,0 +1,14 @@
+{
+  "name": "testmodules",
+  "version": "1.0.0",
+  "description": "",
+  "main": "app.js",
+  "scripts": {
+    "start": "node ./app.js",
+    "type": "npx typescript src/*.js --declaration --allowJs --emitDeclarationOnly --outDir src",
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "author": "",
+  "license": "ISC",
+  "type": "module"
+}
