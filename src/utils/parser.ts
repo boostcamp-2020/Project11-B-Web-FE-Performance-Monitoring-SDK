@@ -21,6 +21,10 @@ export const parseStack = (error: Error): IStack[] => {
   return parsedStackList;
 };
 
+export const parseErrorType = (error: Error): string => {
+  return error.stack ? error.stack.split('\n')[0].split(':')[0] : '';
+};
+
 // meta
 export const parseMeta = (): IMeta => {
   const { browser, os } = Bowser.parse(window.navigator.userAgent);
