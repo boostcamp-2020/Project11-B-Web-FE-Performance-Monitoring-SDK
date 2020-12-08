@@ -1,6 +1,7 @@
 import * as Bowser from 'bowser';
 import * as ErrorStackParser from 'error-stack-parser';
-import { IStack, IMeta } from '../handlers/type';
+import { IStack, IMeta, IPayload } from '../handlers/type';
+import { name, version } from '../../package.json';
 
 // stack
 export const parseStack = (error: Error): IStack[] => {
@@ -40,4 +41,23 @@ export const parseMeta = (): IMeta => {
     url: window.location.href,
   };
   return metaData;
+};
+
+// Browser
+export const browserParser = (error: Error): IPayload => {
+  const stack: IStack[] = parseStack(error);
+  const errorType = parseErrorType(error);
+  const meta: IMeta = parseMeta();
+  const payload: IPayload = {
+    type: errorType,
+    message: error.message || '',
+    sdk: {
+      name,
+      version,
+    },
+    stack,
+    occuredAt: new Date().toString(),
+    meta,
+  };
+  return payload;
 };
