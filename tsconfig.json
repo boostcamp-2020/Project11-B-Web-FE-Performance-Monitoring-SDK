@@ -13,5 +13,5 @@
     "resolveJsonModule": true,
     "lib": ["ES2015", "dom"]
   },
-  "exclude": ["dist", "./src/test"]
+  "exclude": ["dist", "/src/test"]
 }
