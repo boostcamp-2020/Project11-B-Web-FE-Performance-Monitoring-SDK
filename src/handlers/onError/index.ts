@@ -1,25 +1,20 @@
-import { name, version } from '../../../package.json';
-import { IPayload, IStack, IMeta } from '../type';
+import { IConfig } from '../type';
 import sendError from '../../apis/sendError';
-import { parseStack, parseErrorType, parseMeta } from '../../utils/parser';
+import { browserParser } from '../../utils/parser';
 
-const onErrorHandler = (dsn: string): void => {
+const onErrorHandler = (dsn: string, config: IConfig): void => {
   window.onerror = (message, source, line, column, error) => {
     if (!error) return;
-    const stack: IStack[] = parseStack(error);
-    const errorType = parseErrorType(error);
-    const meta: IMeta = parseMeta();
-    const payload: IPayload = {
-      type: errorType,
-      message: error.message || '',
-      sdk: {
-        name,
-        version,
-      },
-      stack,
-      occuredAt: new Date().toString(),
-      meta,
-    };
+    // base
+    const payload = browserParser(error);
+
+    // config
+    config.customTag.forEach((tag) => {
+      payload.meta[tag.key] = tag.value;
+    });
+
+    payload.meta.user = config.user;
+
     sendError(payload, dsn);
   };
 };
