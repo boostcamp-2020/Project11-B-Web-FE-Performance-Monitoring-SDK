@@ -11,7 +11,6 @@ export default async (payload: IPayload, dsn: string): Promise<Response | undefi
     });
     return response;
   } catch (error) {
-    console.log(error);
     return undefined;
   }
 };
