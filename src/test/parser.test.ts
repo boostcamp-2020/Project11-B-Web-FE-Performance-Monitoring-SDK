@@ -1,10 +1,15 @@
 import { IMeta, IStack } from '../handlers/type';
-import { parseStack, parseErrorType, parseMeta } from './parser';
+import { parseStack, parseErrorType, parseMeta } from '../utils/parser';
 import {
   makeErrorAtFirst,
   callFromFirstToSecond,
   callFromFirstToSecondToThird,
 } from './testModules/first';
+
+interface Test {
+  id: number;
+  name: string;
+}
 
 describe('test parsing error stack', () => {
   describe('when error happens at 1', () => {
