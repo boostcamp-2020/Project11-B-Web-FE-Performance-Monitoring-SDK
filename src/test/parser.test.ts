@@ -1,5 +1,5 @@
 import { IMeta, IStack } from '../handlers/type';
-import { parseStack, parseErrorType, parseMeta } from './parser';
+import { parseStack, parseErrorType, parseMeta } from '../utils/parser';
 import {
   makeErrorAtFirst,
   callFromFirstToSecond,
