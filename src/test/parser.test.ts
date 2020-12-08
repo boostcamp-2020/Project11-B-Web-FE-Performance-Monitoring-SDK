@@ -6,11 +6,6 @@ import {
   callFromFirstToSecondToThird,
 } from './testModules/first';
 
-interface Test {
-  id: number;
-  name: string;
-}
-
 describe('test parsing error stack', () => {
   describe('when error happens at 1', () => {
     // callFromFirstToSecondToThird();
