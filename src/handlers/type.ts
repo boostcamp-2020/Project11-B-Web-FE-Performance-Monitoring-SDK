@@ -6,6 +6,7 @@ export interface IPayload {
   sdk: Information;
   meta: IMeta;
   type: string;
+  user?: string;
 }
 
 export interface IStack {
@@ -19,9 +20,15 @@ export interface IMeta {
   browser: Information;
   os: Information;
   url: string;
+  [x: string]: any;
 }
 
 interface Information {
   name: string;
   version: string;
+}
+
+export interface IConfig {
+  customTag: { key: string; value: string }[];
+  user: string | undefined;
 }
