@@ -3,7 +3,9 @@ import Panopticon from '../../dist/bundle';
 const dsn = 'http://panopticon.gq/api/crime/5fcee5757395142ba8e1cbf1';
 
 Panopticon.init(dsn);
-
+Panopticon.setTag('custom', 'Tag');
+Panopticon.setTag('hihi', 'bye');
+Panopticon.setUser('Warden');
 const makeCustomError = () => {
   throw new Error('error maker made this');
 };
