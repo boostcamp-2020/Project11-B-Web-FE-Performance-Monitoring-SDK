@@ -1,6 +1,6 @@
 import Panopticon from '../../dist/bundle';
 
-const dsn = 'http://panopticon-dev.gq/api/issue'
+const dsn = 'http://panopticon.gq/api/crime/5fcee5757395142ba8e1cbf1';
 
 Panopticon.init(dsn);
 
@@ -70,8 +70,17 @@ typeErrorButton.addEventListener('click', () => {
 // URIError
 const uriErrorButton = document.querySelector('#uri-error');
 uriErrorButton.addEventListener('click', () => {
-  const uri = 'https://boostcamp.com/?한국어=쿼리'
+  const uri = 'https://boostcamp.com/?한국어=쿼리';
   const encoded = encodeURI(uri);
   const malformedUri = encoded.slice(20, 30);
   const decoded = decodeURI(malformedUri);
+});
+
+const manualErrorButton = document.querySelector('#manual-error');
+manualErrorButton.addEventListener('click', () => {
+  try {
+    throw new Error("Maybe I'll be caught by try-catch");
+  } catch (err) {
+    Panopticon.send(err);
+  }
 });
