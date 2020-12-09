@@ -1,7 +1,7 @@
 export default (dsn: string): void => {
   try {
     if (dsn === '') return;
-    fetch(`${dsn}/engagement`, {
+    fetch(`${dsn}/visits`, {
       method: 'POST',
     });
   } catch (error) {

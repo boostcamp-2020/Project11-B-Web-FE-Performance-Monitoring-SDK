@@ -1,4 +1,4 @@
-import sendEngagement from './apis/sendEngagement';
+import sendVisits from './apis/sendEngagement';
 import onErrorHandler from './handlers/onError';
 import onUnhandledRejection from './handlers/onUnhandledRejection';
 import onManualError from './handlers/onManualError';
@@ -16,7 +16,7 @@ const PanopticonClass = class {
 
   init = (dsn: string) => {
     this.setDSN(dsn);
-    sendEngagement(dsn);
+    sendVisits(dsn);
   };
 
   setDSN = (dsn: string) => {
