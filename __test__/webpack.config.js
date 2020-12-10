@@ -34,6 +34,20 @@ module.exports = {
         title: 'index페이지',
       },
     }),
+    new HtmlWebpackPlugin({
+      template: './src/test2.html',
+      filename: './test2.html',
+      templateParameters: {
+        title: 'test2페이지',
+      },
+    }),
+    new HtmlWebpackPlugin({
+      template: './src/test3.html',
+      filename: './test3.html',
+      templateParameters: {
+        title: 'test3페이지',
+      },
+    }),
   ],
   devServer: {
     contentBase: path.resolve(__dirname, '/dist'),
