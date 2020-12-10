@@ -1,3 +1,4 @@
+import sendVisits from './apis/sendEngagement';
 import onErrorHandler from './handlers/onError';
 import onUnhandledRejection from './handlers/onUnhandledRejection';
 import onManualError from './handlers/onManualError';
@@ -16,6 +17,11 @@ const PanopticonClass = class {
   }
 
   init = (dsn: string) => {
+    this.setDSN(dsn);
+    sendVisits(dsn);
+  };
+
+  setDSN = (dsn: string) => {
     this.DSN = dsn;
     handleSession(sendSession(this.DSN));
     onErrorHandler(this.DSN, this.config);
@@ -28,12 +34,12 @@ const PanopticonClass = class {
 
   setTag = (key: string, value: string) => {
     this.config.customTag.push({ key, value });
-    this.init(this.DSN);
+    this.setDSN(this.DSN);
   };
 
   setUser = (_user: string) => {
     this.config.user = _user;
-    this.init(this.DSN);
+    this.setDSN(this.DSN);
   };
 };
 const Panopticon = new PanopticonClass();
