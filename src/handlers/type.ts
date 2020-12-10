@@ -32,3 +32,12 @@ export interface IConfig {
   customTag: { key: string; value: string }[];
   user: string | undefined;
 }
+
+export interface ISessionPayload {
+  sessionBase: string;
+  prevLocation: string;
+  presentLocation: string;
+  prevTime: number;
+  presentTime: number;
+  duration: number;
+}

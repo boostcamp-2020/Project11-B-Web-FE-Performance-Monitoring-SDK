@@ -1,7 +1,9 @@
 import onErrorHandler from './handlers/onError';
 import onUnhandledRejection from './handlers/onUnhandledRejection';
 import onManualError from './handlers/onManualError';
+import handleSession from './handlers/handleSession';
 import { IConfig } from './handlers/type';
+import sendSession from './apis/sendSession';
 
 const PanopticonClass = class {
   DSN: string;
@@ -15,6 +17,7 @@ const PanopticonClass = class {
 
   init = (dsn: string) => {
     this.DSN = dsn;
+    handleSession(sendSession(this.DSN));
     onErrorHandler(this.DSN, this.config);
     onUnhandledRejection(this.DSN, this.config);
   };
