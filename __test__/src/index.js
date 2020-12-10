@@ -1,6 +1,7 @@
 import Panopticon from '../../dist/bundle';
 
-const dsn = 'http://panopticon.gq/api/crime/5fcee5757395142ba8e1cbf1';
+// const dsn = 'http://panopticon.gq/api/sdk/5fcee5757395142ba8e1cbf1';
+const dsn = 'http://localhost:3000/api/sdk/5fcee5757395142ba8e1cbf1';
 
 Panopticon.init(dsn);
 Panopticon.setTag('custom', 'Tag');
