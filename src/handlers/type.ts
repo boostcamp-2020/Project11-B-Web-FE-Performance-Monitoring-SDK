@@ -34,7 +34,7 @@ export interface IConfig {
 }
 
 export interface ISessionPayload {
-  sessionBase: string;
+  sessionBase: number;
   prevLocation: string;
   presentLocation: string;
   prevTime: number;
