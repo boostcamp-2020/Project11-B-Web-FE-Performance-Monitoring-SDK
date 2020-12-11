@@ -6,7 +6,7 @@ const handleSession = (
 ): void => {
   window.onload = () => {
     const postCookie = getCookie('pan');
-    const sessionBase = sessionStorage.getItem('pan');
+    const sessionBase = Number(sessionStorage.getItem('pan'));
     const presentTime = new Date().getTime();
     if (!sessionBase) {
       sessionStorage.setItem('pan', presentTime.toString());
