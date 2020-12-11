@@ -2,7 +2,7 @@ import { IPayload } from '../handlers/type';
 
 export default async (payload: IPayload, dsn: string): Promise<Response | undefined> => {
   try {
-    const response = await fetch(dsn, {
+    const response = await fetch(`${dsn}/crime`, {
       method: 'POST',
       headers: {
         'Content-Type': 'application/json',
