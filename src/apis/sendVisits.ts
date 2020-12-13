@@ -1,7 +1,7 @@
-export default (dsn: string): void => {
+export default async (dsn: string): Promise<void> => {
   try {
     if (dsn === '') return;
-    fetch(`${dsn}/visits`, {
+    await fetch(`${dsn}/visits`, {
       method: 'POST',
     });
   } catch (error) {
