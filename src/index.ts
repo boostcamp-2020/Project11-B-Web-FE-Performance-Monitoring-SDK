@@ -1,4 +1,4 @@
-import sendVisits from './apis/sendEngagement';
+import sendVisits from './apis/sendVisits';
 import onErrorHandler from './handlers/onError';
 import onUnhandledRejection from './handlers/onUnhandledRejection';
 import onManualError from './handlers/onManualError';

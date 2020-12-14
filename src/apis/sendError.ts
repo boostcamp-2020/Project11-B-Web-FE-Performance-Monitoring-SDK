@@ -1,16 +1,18 @@
 import { IPayload } from '../handlers/type';
+import saveCrime from '../caching/saveCrime';
+import sendCached from '../caching/sendCached';
 
-export default async (payload: IPayload, dsn: string): Promise<Response | undefined> => {
+export default async (payload: IPayload, dsn: string): Promise<void> => {
   try {
-    const response = await fetch(`${dsn}/crime`, {
+    await fetch(`${dsn}/crime`, {
       method: 'POST',
       headers: {
         'Content-Type': 'application/json',
       },
       body: JSON.stringify(payload),
     });
-    return response;
+    sendCached(dsn);
   } catch (error) {
-    return undefined;
+    saveCrime(payload);
   }
 };
