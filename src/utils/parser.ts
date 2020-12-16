@@ -15,8 +15,8 @@ export const parseStack = (error: Error): IStack[] => {
     return {
       columnNo: String(data.columnNumber) || '',
       lineNo: String(data.lineNumber) || '',
-      filename,
-      function: data.functionName || '',
+      filename: filename || 'unknown',
+      function: data.functionName || 'unknown',
     };
   });
   return parsedStackList;
