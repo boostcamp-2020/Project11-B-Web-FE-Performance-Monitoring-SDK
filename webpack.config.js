@@ -1,12 +1,11 @@
-// eslint-disable-next-line @typescript-eslint/no-var-requires
+/* eslint-disable @typescript-eslint/no-var-requires */
+require('es6-promise').polyfill();
 const path = require('path');
 
 module.exports = {
   mode: 'production',
   target: 'web',
-  entry: {
-    main: './src/index.ts',
-  },
+  entry: ['whatwg-fetch', '@babel/polyfill', './src/index.ts'],
   output: {
     path: path.resolve(__dirname, './dist'),
     filename: 'bundle.js',
@@ -19,6 +18,11 @@ module.exports = {
   },
   module: {
     rules: [
+      {
+        test: /\.(js|jsx|ts|tsx)$/,
+        exclude: /(node_modules)/,
+        loader: 'babel-loader',
+      },
       {
         test: /\.tsx?/,
         use: 'ts-loader',
