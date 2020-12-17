@@ -2,8 +2,8 @@
   "name": "pan-opt",
   "version": "2.1.0",
   "description": "panopticon-js Panopticon SDK for javascript",
-  "main": "dist/bundle.js",
-  "types": "dist/index.d.ts",
+  "main": "dist/src/bundle.js",
+  "types": "dist/src/index.d.ts",
   "scripts": {
     "dev": "concurrently \"npm start\" \"cd __test__ && npm run dev\"",
     "test": "jest",

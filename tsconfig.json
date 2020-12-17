@@ -6,12 +6,12 @@
     "module": "es6",
     "moduleResolution": "node",
     "declaration": true,
-    "outDir": "./dist",
+    "outDir": "dist",
     "strict": true,
     "esModuleInterop": true,
     "forceConsistentCasingInFileNames": true,
     "resolveJsonModule": true,
     "lib": ["ES2015", "dom"]
   },
-  "exclude": ["dist", "/src/test"]
+  "exclude": ["dist", "src/test", "__test__", "node_modules"]
 }
