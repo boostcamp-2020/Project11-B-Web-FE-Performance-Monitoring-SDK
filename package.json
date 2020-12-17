@@ -1,6 +1,6 @@
 {
   "name": "pan-opt",
-  "version": "2.1.0",
+  "version": "2.1.1",
   "description": "panopticon-js Panopticon SDK for javascript",
   "main": "dist/src/bundle.js",
   "types": "dist/src/index.d.ts",
