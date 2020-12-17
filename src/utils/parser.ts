@@ -3,6 +3,7 @@ import * as ErrorStackParser from 'error-stack-parser';
 import { IStack, IMeta, IPayload } from '../handlers/type';
 import { name, version } from '../../package.json';
 
+const EMPTY_STRRING = 'unknown';
 // stack
 export const parseStack = (error: Error): IStack[] => {
   const parsedDataList = ErrorStackParser.parse(error);
@@ -13,10 +14,10 @@ export const parseStack = (error: Error): IStack[] => {
       filename = data.fileName.slice(matchedURL[0].length);
     }
     return {
-      columnNo: String(data.columnNumber) || '',
-      lineNo: String(data.lineNumber) || '',
-      filename: filename || 'unknown',
-      function: data.functionName || 'unknown',
+      columnNo: String(data.columnNumber) || EMPTY_STRRING,
+      lineNo: String(data.lineNumber) || EMPTY_STRRING,
+      filename: filename || EMPTY_STRRING,
+      function: data.functionName || EMPTY_STRRING,
     };
   });
   return parsedStackList;
@@ -31,14 +32,14 @@ export const parseMeta = (): IMeta => {
   const { browser, os } = Bowser.parse(window.navigator.userAgent);
   const metaData: IMeta = {
     browser: {
-      name: browser.name || '',
-      version: browser.version || '',
+      name: browser.name || EMPTY_STRRING,
+      version: browser.version || EMPTY_STRRING,
     },
     os: {
-      name: os.name || '',
-      version: os.versionName || '',
+      name: os.name || EMPTY_STRRING,
+      version: os.versionName || EMPTY_STRRING,
     },
-    url: window.location.href,
+    url: window.location.href || EMPTY_STRRING,
   };
   return metaData;
 };
@@ -50,14 +51,14 @@ export const browserParser = (error: Error): IPayload => {
   const meta: IMeta = parseMeta();
   const payload: IPayload = {
     type: errorType,
-    message: error.message || '',
+    message: error.message || EMPTY_STRRING,
     sdk: {
       name,
       version,
     },
-    stack,
+    stack: stack || [],
     occuredAt: new Date().toString(),
-    meta,
+    meta: meta || {},
   };
   return payload;
 };
