@@ -1,0 +1,12 @@
+.github/
+src/
+.eslintignore
+.eslintrc
+.gitignore
+.gitmessage
+.prettierrc
+tsconfig.json
+__test__
+.jest.config.js
+node_modules
+webpack.config.js
