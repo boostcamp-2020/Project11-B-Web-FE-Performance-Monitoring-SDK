@@ -7,7 +7,7 @@ module.exports = {
   target: 'web',
   entry: ['whatwg-fetch', '@babel/polyfill', './src/index.ts'],
   output: {
-    path: path.resolve(__dirname, './dist'),
+    path: path.resolve(__dirname, './dist/src'),
     filename: 'bundle.js',
     library: 'Panopticon',
     libraryTarget: 'commonjs-module',
