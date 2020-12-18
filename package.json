@@ -1,9 +1,9 @@
 {
   "name": "pan-opt",
-  "version": "2.1.0",
+  "version": "2.1.1",
   "description": "panopticon-js Panopticon SDK for javascript",
-  "main": "dist/bundle.js",
-  "types": "dist/index.d.ts",
+  "main": "dist/src/bundle.js",
+  "types": "dist/src/index.d.ts",
   "scripts": {
     "dev": "concurrently \"npm start\" \"cd __test__ && npm run dev\"",
     "test": "jest",
@@ -12,10 +12,6 @@
     "lint": "eslint \"./**/*.{js,jsx,ts,tsx}\"",
     "lint:fix": "eslint --fix \"./**/*.{ts,tsx}\"",
     "prettier": "prettier --write --config \"./.prettierrc\" \"./**/*.{js,jsx,ts,tsx}\""
-  },
-  "engines": {
-    "node": "14.15.1",
-    "npm": "6.14.8"
   },
   "repository": {
     "type": "git",
@@ -39,6 +35,11 @@
     "@types/jest": "^26.0.19",
     "@typescript-eslint/eslint-plugin": "^4.10.0",
     "@typescript-eslint/parser": "^4.10.0",
+    "@babel/core": "^7.12.10",
+    "@babel/plugin-proposal-optional-chaining": "^7.12.7",
+    "@babel/polyfill": "^7.12.1",
+    "@babel/preset-env": "^7.12.10",
+    "babel-loader": "^8.2.2",
     "babel-polyfill": "^6.26.0",
     "concurrently": "^5.3.0",
     "eslint": "^7.15.0",
@@ -55,11 +56,6 @@
     "webpack-cli": "^4.2.0"
   },
   "dependencies": {
-    "@babel/core": "^7.12.10",
-    "@babel/plugin-proposal-optional-chaining": "^7.12.7",
-    "@babel/polyfill": "^7.12.1",
-    "@babel/preset-env": "^7.12.10",
-    "babel-loader": "^8.2.2",
     "bowser": "^2.11.0",
     "core-js": "^3.8.1",
     "error-stack-parser": "^2.0.6",

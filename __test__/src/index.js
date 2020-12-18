@@ -1,4 +1,4 @@
-import Panopticon from '../../dist/bundle';
+import Panopticon from '../../dist/src/bundle';
 
 // const dsn = 'http://panopticon.gq/api/sdk/5fcee5757395142ba8e1cbf1';
 const dsn = 'http://localhost:3000/api/sdk/5fcee5757395142ba8e1cbf1';
