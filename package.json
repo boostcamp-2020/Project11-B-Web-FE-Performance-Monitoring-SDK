@@ -13,10 +13,6 @@
     "lint:fix": "eslint --fix \"./**/*.{ts,tsx}\"",
     "prettier": "prettier --write --config \"./.prettierrc\" \"./**/*.{js,jsx,ts,tsx}\""
   },
-  "engines": {
-    "node": "14.15.1",
-    "npm": "6.14.8"
-  },
   "repository": {
     "type": "git",
     "url": "git+https://github.com/boostcamp-2020/Project11-B-Web-FE-Performance-Monitoring-SDK.git"
